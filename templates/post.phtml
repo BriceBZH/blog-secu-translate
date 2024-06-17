@@ -1,0 +1,24 @@
+<main id="post" class="py-5 px-3">
+    <h1><?php echo $data['post']->getTitle(); ?></h1>
+    <?php
+        echo $data['post']->getContent();
+    ?>
+    <h2 class="mt-5"><?= $this->translator->translate("list_comments_title") ?></h2>
+        
+        <ul class="row mt-5">
+            <?php
+                foreach($data['comments'] as $val) {
+                    ?>
+                    <li class="col-4 my-2">
+                        <article class="card">
+                            <section class="card-body">
+                                <p class="card-text"><?php echo $val->getContent() ?></p>
+                            </section>
+                        </article>
+                    </li>
+                    <?php
+                }
+            ?>
+        </ul>
+    <a href="index.php?route=comment&post=<?php echo $data['post']->getId() ?>" class="btn btn-primary mt-3"><span class="bi-plus-circle-fill"></span><?= $this->translator->translate("add_comment_button") ?></a>
+</main>

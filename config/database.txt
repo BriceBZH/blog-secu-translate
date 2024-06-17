@@ -1,0 +1,4 @@
+root
+
+localhost
+blog-secu-translate
